@@ -1,0 +1,25 @@
+version: "3"
+services:
+  api:
+    build:
+      context: ./api
+    ports:
+      - 8000:8000
+    volumes:
+      - ./api:/var/www/html
+    depends_on:
+      - database
+  web:
+    build:
+      context: ./web
+    ports:
+      - 4200:4200
+    volumes:
+      - ./web:/app
+  database:
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: pokedex
+      MYSQL_USER: root
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: secret
