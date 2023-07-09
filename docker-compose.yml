@@ -14,12 +14,15 @@ services:
       context: ./web
     ports:
       - 4200:4200
+    environment:
+      NODE_ENV: development
     volumes:
       - ./web:/app
   database:
     image: mysql:latest
+    ports:
+      - 3306:3306
     environment:
       MYSQL_DATABASE: pokedex
-      MYSQL_USER: root
       MYSQL_PASSWORD: secret
       MYSQL_ROOT_PASSWORD: secret

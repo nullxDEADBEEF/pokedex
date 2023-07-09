@@ -1,0 +1,6 @@
+<ul>
+  <li data-id={{pokemon.id}} *ngFor="let pokemon of pokemonData">
+<a class="button" [routerLink]="['/pokemon', pokemon.id]">{{ pokemon.name }}</a>
+  </li>
+</ul>
+
